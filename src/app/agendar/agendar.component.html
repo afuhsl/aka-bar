@@ -1,0 +1,102 @@
+<div class="ti">
+  <h1 class="titulo">Haz tu Reservacion</h1>
+</div>
+<hr>
+<section class="servicios">
+  <img src="../../assets/imagenes/terraza.jpg" pTooltip="Terraza" alt="terraza" width="100px" (mouseover)="mostrarTexto(1)" (mouseout)="ocultarTexto(1)">
+  <img src="../../assets/imagenes/nivel1.jpg" pTooltip="Piso1" alt="" width="100px" (mouseover)="mostrarTexto(2)" (mouseout)="ocultarTexto(2)">
+  <img src="../../assets/imagenes/nivel2.jpg"  pTooltip="Piso2"alt="" width="100px" (mouseover)="mostrarTexto(3)" (mouseout)="ocultarTexto(3)">
+  <img src="../../assets/imagenes/calle.jpeg"  pTooltip="Aire Libre" alt="" width="100px" (mouseover)="mostrarTexto(4)" (mouseout)="ocultarTexto(4)">
+  <div class="texto" [ngStyle]="{'opacity': textoVisible}">RESERVA EN EL AREA QUE MAS TE AGRADE</div>
+</section>
+<br>
+<hr>
+<br>
+<section class="contenedor">
+
+  <div class="calendario">
+    <div class="hijo">
+    <p-calendar [inline]="true" [disabledDates]="fechasGuardadas" styleClass="disabled-date"></p-calendar>
+    </div>
+  </div>
+
+  <div class="formu">
+    <form (submit)="guardarReserva()">
+      <div>
+        <label> Nombre:
+          <br>
+          <input pInputText class="p-inputtext-lg" type="text" [(ngModel)]="nombre2" name="nombre" required>
+        </label>
+      </div>
+      <div>
+        <label>Email
+          <br>
+          <input type="text" pInputText class="p-inputtext-lg" [(ngModel)]="email2" name="email" required>
+
+        </label>
+      </div>
+      <div>
+        <label>Cantidad de personas:
+          <br>
+          <input pInputText class="p-inputtext-lg" type="number" [(ngModel)]="cantidadPersonas2" name="cantidadPersonas"
+            required>
+        </label>
+      </div>
+      <div>
+        <label>
+          Servicio:
+          <br>
+          <select pInputText class="p-inputtext-lg" aria-placeholder="Selecciona Lugar" [(ngModel)]="servicio2"
+            name="servicio" required>
+            <option value="Terraza">Terraza 1</option>
+            <option value="Piso1">Piso 1</option>
+            <option value="Piso2">Piso 2</option>
+            <option value="Acera">Acera</option>
+          </select>
+        </label>
+      </div>
+      <br>
+      <div>
+        <mat-form-field>
+          <mat-label>Seleccione Fecha</mat-label>
+          <input name="fecha" matInput [matDatepicker]="fechaPicker" [(ngModel)]="fecha2" required>
+          <mat-datepicker-toggle matSuffix [for]="fechaPicker"></mat-datepicker-toggle>
+          <mat-datepicker #fechaPicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <label>
+          Hora:
+          <br>
+          <input pInputText class="p-inputtext-lg" type="time" [(ngModel)]="hora2" name="hora" required>
+        </label>
+      </div>
+      <br><br>
+      <p-toast></p-toast>
+      <button type="submit" class="btn btn-outline-dark" >Guardar reserva</button>
+      <button type="button" (click)="mostrarUltimaReserva()" [disabled]="!reservaGuardada" class="btn btn-outline-dark">Ver Reservacion</button>
+      <p-dialog header="Header" [(visible)]="visible" [style]="{ width: '50vw' }" >
+        <ng-template pTemplate="header">
+          <span class="text-xl font-bold">Reserva</span>
+        </ng-template>
+        <div *ngIf="ultimaResrvacion">
+        <p>Nombre: {{ultimaResrvacion.nombre}}</p>
+        <p>Email: {{ultimaResrvacion.email}}</p>
+        <p>Cantidad de personas: {{ultimaResrvacion.cantidadPersonas}}</p>
+        <p>Servicio: {{ultimaResrvacion.servicio}}</p>
+        <p>Fecha: {{ultimaResrvacion.fecha | date: 'dd/MM/yyyy'}}</p>
+        <p>Hora: {{ultimaResrvacion.hora}}</p>
+        </div>
+        <ng-template pTemplate="footer">
+          <p-button icon="pi pi-check" (click)="visible = false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+      </p-dialog>
+    </form>
+  </div>
+</section>
+
+<hr>
+<div class="ti">
+  <img src="../../assets/imagenes/image.png" alt="">
+</div>

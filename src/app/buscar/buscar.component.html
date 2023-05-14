@@ -1,0 +1,21 @@
+<form class="form d-flex">
+    <input #msg class="form-control me-2" (keyup.enter)="ver(msg.value)" type="text" placeholder="Busca la promoción que más te guste, solo busca el día de la semana">
+    <!--<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+<ng-container *ngIf="index !== -1 else noexiste">
+    <div class="card p-3 mt-3">
+        <div class="card-block">
+            <div class="card-title">
+                <p><strong>{{datos.titulo}}</strong></p>  
+            </div>
+            <div class="text">
+                <p>{{datos.bio}}</p>
+            </div>
+            <img [src]="datos.img" alt="" class="card-img img-fluid">
+        </div>
+    </div>
+</ng-container>
+<ng-template #noexiste>
+    <p-messages [(value)]="mensaje" [enableService]="false" [closable]="false"></p-messages>
+</ng-template>

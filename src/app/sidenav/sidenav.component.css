@@ -1,0 +1,24 @@
+.example-card {
+    max-width: 400px;
+  }
+
+  #formu{
+    background-image: url('../../assets/imagenes/image.png');
+    
+    background-position: center;
+  }
+
+  .titulo{
+    font-size: 50px;
+    font-family: 'Muthiara';
+    
+  }
+  .ti{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div{
+    font-family: 'Ubuntu-Regular';
+  }
