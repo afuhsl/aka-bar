@@ -1,3 +1,6 @@
+body{
+  background-color: black;
+}
 .example-small-box, .example-large-box {
     display: flex;
     align-items: center;
@@ -5,6 +8,9 @@
     margin: 16px;
     padding: 16px;
     border-radius: 8px;
+    text-align: center;
+    padding-left: 10px;
+    background-color: rgba(76, 76, 76, 0.278);
   }
   
   .example-small-box {
@@ -22,17 +28,17 @@
     width: 300px;
     border-radius: 30px;
     padding: 10px;
+    padding-left: 50px
   }
   #explicacion{
     font-size: 25px;
     padding: 5%;
     text-align: center;
     font-family: 'Bebas Neue', sans-serif;
-    font-family: 'Pacifico', cursive;
   }
   .titulo{
     font-size: 50px;
-    font-family: sans-serif;
+    font-family: 'Muthiara';
     
   }
   .ti{

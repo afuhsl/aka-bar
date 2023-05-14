@@ -1,4 +1,6 @@
-
+body{
+  background-color: black;
+}
 
 .redondo{
     border-radius: 120px;
